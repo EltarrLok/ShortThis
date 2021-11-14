@@ -1,25 +1,23 @@
-import styled from '@emotion/styled';
-
-const Button = styled.button`
-  border: none;
-  border-radius: 0.375rem;
-  padding: 0 1rem;
-  background-color: #3865fd;
-  color: white;
-  height: 2rem;
-  font-size: 16px;
-`;
+import styled from "@emotion/styled";
+import UrlShortener from "./pages/UrlShortener";
+import { RestUrlShortenerRepository } from "./pages/UrlShortener/url-shortener-repository/rest-url-shortener-repository";
+import UrlShortenerRepositoryContext from "./pages/UrlShortener/url-shortener-repository/UrlShortenerRepositoryContext";
 
 const Div = styled.div`
-  margin-top: 50px;
   display: flex;
   justify-content: center;
+  align-items: center;
+  margin-top: 10rem;
 `;
 
 function App() {
+  const urlShortenerRepository = new RestUrlShortenerRepository();
+
   return (
     <Div>
-      <Button>Salut</Button>
+      <UrlShortenerRepositoryContext.Provider value={urlShortenerRepository}>
+        <UrlShortener />
+      </UrlShortenerRepositoryContext.Provider>
     </Div>
   );
 }

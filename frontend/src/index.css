@@ -1,12 +1,21 @@
+html,
 body {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
-  font-size: 24px;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+input:required {
+  box-shadow: none;
+  outline: none;
+}
+
+:-moz-submit-invalid {
+  box-shadow: none;
+}
+
+:-moz-ui-invalid {
+  box-shadow: none;
 }

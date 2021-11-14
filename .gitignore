@@ -4,6 +4,7 @@ __pycache__
 
 
 ## Frontend
+.env
 
 # dependencies
 node_modules
