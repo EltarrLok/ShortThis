@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{%block h2%} Please input a url {% endblock %}
+
+{%block content %}
+<form action = "#" method = 'POST'> <!--'#' s we will stay in the same page-->
+    <p> URL :</p>
+    <input type ='url' name="url" required>
+    <button type ='submit' value="submit">Short this url</button>
+
+</form>
+
+
+{% endblock %}
