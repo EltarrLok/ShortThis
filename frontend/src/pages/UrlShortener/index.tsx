@@ -27,6 +27,7 @@ const Div = styled.div`
   flex-direction: column;
   gap: 2rem;
   align-items: center;
+  width: fit-content;
 `;
 
 interface UrlShortenerForm {
@@ -47,7 +48,6 @@ const UrlShortener: FunctionComponent = () => {
   const onSubmit = async (data: UrlShortenerForm) => {
     const { shortenedUrl } = await urlShortenerRepository.shorten(data.link);
     setShortenedUrl(shortenedUrl);
-    console.log(data.link, shortenedUrl);
     reset();
   };
 

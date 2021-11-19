@@ -1,5 +1,6 @@
-import styled from "@emotion/styled";
-import { FunctionComponent, useCallback, useRef } from "react";
+import { FunctionComponent, useCallback, useRef } from 'react';
+
+import styled from '@emotion/styled';
 
 const Div = styled.div`
   border: solid;
@@ -11,7 +12,6 @@ const Div = styled.div`
   gap: 3rem;
   align-items: center;
   justify-content: space-between;
-  max-width: 75%;
 `;
 
 const CopyButton = styled.button`
@@ -30,6 +30,7 @@ const Input = styled.input`
   border: none;
   font-size: 18px;
   color: black;
+  background-color: transparent;
 `;
 
 interface ShortenedUrlProps {
@@ -37,16 +38,13 @@ interface ShortenedUrlProps {
 }
 
 const ShortenedUrl: FunctionComponent<ShortenedUrlProps> = (props) => {
-  const { link = "" } = props;
+  const { link = '' } = props;
 
   const shortenedUrlRef = useRef<HTMLInputElement>(null);
 
   const handleClick = useCallback(() => {
-    // WIP
-    // navigator.clipboard.writeText(link);
-    /* shortenedUrlRef.current?.select();
-    document.execCommand("copy");
-    document.getSelection()?.empty(); */
+    shortenedUrlRef.current?.select();
+    navigator.clipboard.writeText(shortenedUrlRef.current?.value || '');
   }, []);
 
   return (

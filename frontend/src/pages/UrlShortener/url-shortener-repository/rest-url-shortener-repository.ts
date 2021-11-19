@@ -10,9 +10,11 @@ export class RestUrlShortenerRepository implements UrlShortenerRepository {
 	API_ENDPOINT = 'shortThis';
 
 	async shorten(link: string): Promise<UrlShortenerPostInDto> {
-		const { data } = await axios.post(urljoin(API_URL, this.API_ENDPOINT), {
-			url: link,
-		});
+		const form = new FormData();
+		form.append('url', link);
+
+		const { data } = await axios.post(urljoin(API_URL, this.API_ENDPOINT), form);
+		console.log(data);
 
 		return data;
 	}
